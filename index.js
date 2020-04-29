@@ -39,6 +39,17 @@ let s = ["a", 2, { "C": 1 }].filter(function(element) { return element = "a" })
 
 //8.
 
+// var someNumbers = [1, 2, 3, 4, 5];
+// var total = 0;
+// for (var i = 0; i <= someNumbers.length; ++i) {
+//     count += someNumbers[i];
+// }
+// console.log("Total : " + count);
+
+// count variable was never declared
+// total is declared but not read
+// using <= return NaN. instead it should be i < someNumbers.length 
+
 // 9.
 // var symbolMatrix = [
 //         [1, 1, 1],
@@ -70,19 +81,19 @@ let symbolMatrix2 = [
     ["C", "C", "C", "C", "C"]
 ];
 
-function convert(matrix) {
-    const rows = matrix.length
-    const columns = matrix[0].length
 
-    const result = Array(columns).fill(Array(rows))
+let transpose = function(arr) {
 
-    for (let row = 0; row < rows; row++) {
-        for (let column = 0; column < columns; column++) {
-            result[column][row] = matrix[row][column]
+    let transposed = []
+    for (let i = 0; i < arr[0].length; i++) {
+        transposed[i] = []
+        for (let j = 0; j < arr.length; j++) {
+            transposed[i][j] = arr[j][i]
         }
     }
-    return result
+    return transposed
 }
+
 
 //11. covert letters to numbers using map
 
@@ -116,4 +127,36 @@ let toNumbers = function(map) {
     let result = map.values()
     return result
 }
-console.log(toNumbers(toMap(flatten(convert(symbolMatrix2)))))
+
+console.log(toNumbers(toMap(flatten(transpose(symbolMatrix2)))))
+console.log(transpose(symbolMatrix2))
+
+// 15 
+class Matrix {
+    constructor(ary) {
+        this.mtx = ary
+        this.height = ary.length
+        this.width = ary[0].length
+    }
+
+
+    transpose() {
+        let transposed = []
+        for (let i = 0; i < this.width; i++) {
+            transposed[i] = []
+            for (let j = 0; j < this.height; j++) {
+                transposed[i][j] = this.mtx[j][i]
+            }
+        }
+        return new Matrix(transposed)
+    }
+    toNumber() {
+        return this.transpose().mtx.map(function mapper(a, i) {
+            if (Array.isArray(a)) {
+                return a.map(mapper)
+            } else {
+                return i
+            }
+        })
+    }
+}

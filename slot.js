@@ -25,20 +25,35 @@ class Matrix {
             }
         })
     }
+
+
 }
 
 
-let mm = new Matrix([
-    [10, 20, 30, 40],
-    [1, 2, 3, 4]
-])
 
-let symbolMatrix2 = new Matrix([
-    ["A", "A", "A", "A", "A"],
-    ["B", "B", "B", "B", "B"],
-    ["C", "C", "C", "C", "C"]
-])
-console.log(mm)
-console.log(mm.transpose())
-console.log(symbolMatrix2.transpose())
-console.log(symbolMatrix2.toNumber())
+console.clear()
+
+
+let slot = [
+    [Math.floor(Math.random() * 5)],
+    [Math.floor(Math.random() * 5)],
+    [Math.floor(Math.random() * 5)],
+    [Math.floor(Math.random() * 5)],
+    [Math.floor(Math.random() * 5)]
+]
+
+function slotChecker(arr) {
+    let x = arr
+    let find = arr[0][0]
+    let counter = 0
+    for (let i = 0; i < x.length; i++) {
+        if (String(x[i]) === String(find)) {
+            counter++
+        } else {
+            break
+        }
+    }
+    return counter
+}
+console.log(slot)
+console.log(slotChecker(slot))

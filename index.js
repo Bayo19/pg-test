@@ -131,6 +131,33 @@ let toNumbers = function(map) {
 console.log(toNumbers(toMap(flatten(transpose(symbolMatrix2)))))
 console.log(transpose(symbolMatrix2))
 
+// 12.
+let slot = [
+    [Math.floor(Math.random() * 5)],
+    [Math.floor(Math.random() * 5)],
+    [Math.floor(Math.random() * 5)],
+    [Math.floor(Math.random() * 5)],
+    [Math.floor(Math.random() * 5)]
+]
+
+function slotChecker(arr) {
+    let x = arr
+    let find = arr[0][0]
+    let counter = 0
+    for (let i = 0; i < x.length; i++) {
+        if (String(x[i]) === String(find)) {
+            counter++
+        } else {
+            break
+        }
+    }
+    return counter
+}
+console.log(slot)
+console.log(slotChecker(slot))
+
+// 13.
+
 // 15 
 class Matrix {
     constructor(ary) {

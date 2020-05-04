@@ -131,7 +131,7 @@ let toNumbers = function(map) {
 console.log(toNumbers(toMap(flatten(transpose(symbolMatrix2)))))
 console.log(transpose(symbolMatrix2))
 
-// 12.
+// 12. Matching values
 let slot = [
     [Math.floor(Math.random() * 5)],
     [Math.floor(Math.random() * 5)],
@@ -156,7 +156,20 @@ function slotChecker(arr) {
 console.log(slot)
 console.log(slotChecker(slot))
 
-// 13.
+// 13. Random Matrix
+
+function randomMatrix() {
+    let row = Math.floor(Math.random() * (7 - 4) + 4)
+    let column = Math.floor(Math.random() * (6 - 3) + 3)
+
+    return Array.from({ length: `${row}` }, function() {
+        return Array.from({ length: `${column}` }, function() {
+            return Math.floor(Math.random() * 11)
+        })
+    })
+}
+console.clear()
+console.log(randomMatrix())
 
 // 15 
 class Matrix {

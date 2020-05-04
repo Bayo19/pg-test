@@ -1,6 +1,6 @@
 function randomMatrix() {
-    let row = Math.floor(Math.random() * (7 - 4) + 4)
-    let column = Math.floor(Math.random() * (6 - 3) + 3)
+    let row = 5
+    let column = 4
 
     return Array.from({ length: `${row}` }, function() {
         return Array.from({ length: `${column}` }, function() {

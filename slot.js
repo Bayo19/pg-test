@@ -35,16 +35,23 @@ console.clear()
 
 
 let slot = [
-    [Math.floor(Math.random() * 5)],
-    [Math.floor(Math.random() * 5)],
-    [Math.floor(Math.random() * 5)],
-    [Math.floor(Math.random() * 5)],
-    [Math.floor(Math.random() * 5)]
-]
+        [Math.floor(Math.random() * 5)],
+        [Math.floor(Math.random() * 5)],
+        [Math.floor(Math.random() * 5)],
+        [Math.floor(Math.random() * 5)],
+        [Math.floor(Math.random() * 5)]
+    ]
+    // let slot = Array.from({ length: 5 }, function(x) {
+    //     x = Array.from({ length: 4 })
+    //     return x.map(function(a) {
+    //         return Math.floor(Math.random() * 10)
+    //     })
+    // })
+    // console.log(slot)
 
-function slotChecker(arr) {
-    let x = arr
-    let find = arr[0][0]
+function slotChecker(array) {
+    let x = array
+    let find = array[0][0]
     let counter = 0
     for (let i = 0; i < x.length; i++) {
         if (String(x[i]) === String(find)) {
@@ -53,7 +60,7 @@ function slotChecker(arr) {
             break
         }
     }
-    return counter
+    return { array, counter }
 }
-console.log(slot)
+
 console.log(slotChecker(slot))

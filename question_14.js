@@ -25,10 +25,8 @@ function parse(object) {
         return newobj
     })
 
-    let newObjResult = JSON.stringify({ symbolMatrix, lineWins })
-    return newObjResult
+    let newObj_Result = JSON.stringify({ symbolMatrix, lineWins })
+    return newObj_Result
 }
-
-
 
 console.log(parse(obj))

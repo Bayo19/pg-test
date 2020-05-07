@@ -1,6 +1,9 @@
-function randomMatrix() {
-    let row = 5
-    let column = 4
+console.clear()
+    // 13. Random Matrix input
+
+function randomMatrix(x, y) {
+    let row = x
+    let column = y
 
     return Array.from({ length: `${row}` }, function() {
         return Array.from({ length: `${column}` }, function() {
@@ -8,5 +11,5 @@ function randomMatrix() {
         })
     })
 }
-console.clear()
-console.log(randomMatrix())
+
+console.log(randomMatrix(5, 4))

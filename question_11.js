@@ -1,35 +1,43 @@
 //11. covert letters to numbers using map
+console.clear()
 
-let flatten = function(arr) {
-    let flatMap = []
-    arr.forEach(function(value) {
-        if (Array.isArray(value)) {
-            flatMap = flatMap.concat(flatten(value))
-        } else {
-            flatMap.push(value)
+let symbolMatrix2 = [
+    ["A", "A", "A", "A", "A"],
+    ["B", "B", "B", "B", "B"],
+    ["C", "C", "C", "C", "C"]
+];
+
+function transpose(array) {
+
+    let transposed = []
+    for (let i = 0; i < array[0].length; i++) {
+        transposed[i] = []
+        for (let j = 0; j < array.length; j++) {
+            transposed[i][j] = array[j][i]
         }
-    })
-    return flatMap
-}
-
-
-let length = function(x) {
-    return x.length
-}
-
-let toMap = function(arr) {
-    let q = new Map()
-
-    for (i = 0; i < length(flatten(arr)); i++) {
-        q.set(arr[i] + i, i)
     }
-    return q
+    return transposed
 }
 
-let toNumbers = function(map) {
-    let result = map.values()
-    return result
+function lettertoNumber(arr) {
+    let map = new Map()
+
+    map.set("A", 0)
+    map.set("B", 1)
+    map.set("C", 2)
+
+    for (i = 0; i < arr.length; i++) {
+        for (j = 0; j < arr[0].length; j++) {
+            for (let [k, v] of map.entries()) {
+                if (arr[i][j] == k) {
+                    arr[i][j] = v
+                }
+            }
+        }
+
+    }
+    return arr
 }
 
-console.log(toNumbers(toMap(flatten(transpose(symbolMatrix2)))))
-console.log(transpose(symbolMatrix2))
+
+console.log(lettertoNumber(transpose(symbolMatrix2)))

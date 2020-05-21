@@ -8,7 +8,7 @@ let symbolMatrix2 = [
 ];
 
 
-function transpose(array) {
+export function transpose(array) {
 
     let transposed = []
     for (let i = 0; i < array[0].length; i++) {

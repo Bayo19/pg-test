@@ -20,8 +20,8 @@ function parse(object) {
             z.symbol = Number(z.symbol.split('')[1]) + 4
         }
         let lineSymbols = [5, 5, 5, -1, -1]
-        let { lineIndex: id, win, symbol, matchCount: symbolCount, line: defintion } = z
-        let newobj = { id, win, symbol, symbolCount, defintion, lineSymbols }
+        let { lineIndex: id, win, symbol, matchCount: symbolCount, line: definition } = z
+        let newobj = { id, win, symbol, symbolCount, definition, lineSymbols }
         return newobj
     })
 

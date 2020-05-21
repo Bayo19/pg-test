@@ -19,7 +19,7 @@ function transpose(array) {
     return transposed
 }
 
-function lettertoNumber(arr) {
+function toNumber(arr) {
     let map = new Map()
 
     map.set("A", 0)
@@ -39,5 +39,5 @@ function lettertoNumber(arr) {
     return arr
 }
 
-
-console.log(lettertoNumber(transpose(symbolMatrix2)))
+const lettertoNumber = toNumber(transpose(symbolMatrix2))
+console.log(lettertoNumber)
